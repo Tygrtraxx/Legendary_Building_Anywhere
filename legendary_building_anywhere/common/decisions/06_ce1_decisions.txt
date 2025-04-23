@@ -131,15 +131,26 @@ clear_ground_for_legendary_building = {
 		is_landed = yes
 	}
 
+	############################################################################################
+	# MOD : Allows you to actually be able to select the decision and not have it grayed out
+	#       because you don't have a county capital or direct vassals to build in
+	############################################################################################
 	is_valid_showing_failures_only = {
 		custom_tooltip = {
 			text = clear_ground_for_legendary_building_no_barony_tt
 			any_held_title = {
 				tier = tier_barony
 				title_province = { has_special_building_slot = no }
-				# MOD This comment makes it so the game no longer says "You don't have a valid place to put the building, so I'm making it not selectable for you, to choose the Clear Grounds for a Legendary Building decision." ::: Original code  -> :::  CAPITAL is_capital_barony = yes
-				holder = root
+				# is_capital_barony = yes          <-- Commenting this out makes it so we don't need the county capital requirement
 				is_leased_out = no
+				OR = {
+
+					# Your own holdings
+					holder = scope:ruler
+
+					# Barony held by a direct vassal
+					holder = { liege = scope:ruler }
+				}
 			}
 		}
 	}
@@ -398,13 +409,24 @@ pick_legendary_barony_decision = {
     widget = {
         controller = create_holy_order
         barony_valid = {
-            trigger_if = {
-                limit = { exists = this }
+			############################################################################################
+			# MOD : Allows you to see the clear grounds decision without the county capital requirement
+			#       and it allows you to build in other vassals only if they are DIRECTLY under you
+			############################################################################################
+			trigger_if = {
+				limit = { exists = this }
 				title_province = { has_special_building_slot = no }
-				# MOD This comment makes it so when you are allowed to select the Clear Grounds decision, you can physically see the baronies that are not county capitals, thus allowing you to choose them as a place to build. ::: Original code  -> ::: is_capital_barony = yes
-				holder = scope:ruler
+				# is_capital_barony = yes                             <-- Commenting this out makes it so we don't need the county capital requirement
 				is_leased_out = no
-            }
+				OR = {
+
+					# Your own holdings
+					holder = scope:ruler
+
+					# Barony held by a direct vassal
+					holder = { liege = scope:ruler }
+				}
+			}
         }
     }
     is_valid_showing_failures_only = { # Error suppressing
