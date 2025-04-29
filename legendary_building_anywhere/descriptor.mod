@@ -1,4 +1,4 @@
-version="1.0"
+version="1.16.0.*"
 tags={
 	"Map"
 	"Decisions"
@@ -6,4 +6,5 @@ tags={
 	"Events"
 }
 name="Legendary Building Location Anywhere"
-supported_version="1.15.0.*"
+supported_version="1.16.0.*"
+remote_file_id="3465735570"
