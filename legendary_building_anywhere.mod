@@ -1,4 +1,4 @@
-version="1.16.0.*"
+version="1.0.5"
 tags={
 	"Map"
 	"Decisions"
@@ -6,6 +6,7 @@ tags={
 	"Events"
 }
 name="Legendary Building Location Anywhere"
+picture="thumbnail.png"
 supported_version="1.16.0.*"
 path="C:/Documents/Paradox Interactive/Crusader Kings III/mod/legendary_building_anywhere"
 remote_file_id="3465735570"
