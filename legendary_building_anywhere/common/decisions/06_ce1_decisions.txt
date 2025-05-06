@@ -142,10 +142,10 @@ clear_ground_for_legendary_building = {
 				OR = {
 
 					# Your own holdings
-					holder = scope:ruler
+					holder = root
 
 					# Barony held by a direct vassal
-					holder = { liege = scope:ruler }
+					holder = { liege = root }
 				}
 			}
 		}
