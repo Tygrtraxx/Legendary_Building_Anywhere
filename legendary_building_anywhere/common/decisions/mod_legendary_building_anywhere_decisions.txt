@@ -158,7 +158,14 @@ clear_ground_for_legendary_building = {
             player = root											   
         }													 
     }
-    ai_check_interval = 36
+    ai_check_interval_by_tier = {
+    barony = 0
+    county = 0
+    duchy = 0
+    kingdom = 36
+    empire = 36
+    hegemony = 36
+}
     ai_potential = {
         is_at_war = no
         ai_greed < medium_positive_ai_value
