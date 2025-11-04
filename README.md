@@ -18,6 +18,7 @@ This allows you to build legendary buildings anywhere within your empire.
     - `Legendary_Building_Anywhere.code-workspace`
     - `legendary_building_anywhere/`
     - `legendary_building_anywhere.mod`
+    - `README.MD`
     
 
 3. **Move the Required Files:**
