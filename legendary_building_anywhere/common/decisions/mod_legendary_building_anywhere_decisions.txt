@@ -23,7 +23,7 @@ clear_ground_for_legendary_building = {
 		custom_tooltip = {
 			text = clear_ground_for_legendary_building_no_barony_tt
 			any_held_title = {
-				tier = tier_barony
+				title_tier = barony
 				title_province = { has_special_building_slot = no }
 				# is_capital_barony = yes          <-- Commenting this out makes it so we don't need the county capital requirement
 				is_leased_out = no
