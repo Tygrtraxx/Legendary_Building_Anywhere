@@ -1,7 +1,4 @@
-﻿############################################################################################
-# MOD : Note to self, the decisions are taken from the file "06_ce1_decisions" 
-#       so any updates to those decisions will have to be checked per patch
-############################################################################################
+﻿
 clear_ground_for_legendary_building = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
@@ -14,7 +11,7 @@ clear_ground_for_legendary_building = {
 		has_dlc_feature = legends
 		is_landed = yes
 	}
-
+    
 	############################################################################################
 	# MOD : Allows you to actually be able to select the decision and not have it grayed out
 	#       because you don't have a county capital or direct vassals to build in
