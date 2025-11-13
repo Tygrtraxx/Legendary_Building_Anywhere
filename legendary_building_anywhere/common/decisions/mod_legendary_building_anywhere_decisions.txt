@@ -21,8 +21,14 @@ clear_ground_for_legendary_building = {
 			text = clear_ground_for_legendary_building_no_barony_tt
 			any_held_title = {
 				title_tier = barony
+            # MOD:  By default, the game checks if the county has a special building already in it.
+            #       So I'm making this optional by creating a game rule for it. 
+            #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
+			if = {
+				limit = { NOT = { has_game_rule = require_empty_special_building_slot } }
 				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes          <-- Commenting this out makes it so we don't need the county capital requirement
+            }
+                
 				is_leased_out = no
 				OR = {
 
@@ -190,7 +196,13 @@ pick_legendary_barony_decision = {
 			trigger_if = {
 				limit = { exists = this }
 				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes                             <-- Commenting this out makes it so we don't need the county capital requirement
+			# MOD:  By default, the game checks if the county has a special building already in it.
+            #       So I'm making this optional by creating a game rule for it. 
+            #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
+			if = {
+				limit = { NOT = { has_game_rule = require_empty_special_building_slot } }
+				title_province = { has_special_building_slot = no }
+            }
 				is_leased_out = no
 				OR = {
 
