@@ -1,16 +1,15 @@
-lbla_require_empty_special_building_slot_rule = {
+rule_require_empty_special_building_slot = {
     group = custom_rules_group
-    name = lbla_require_empty_special_building_slot_rule
-    default = require_empty_slot
-    desc = lbla_require_empty_special_building_slot_rule_desc
+    name = rule_require_empty_special_building_slot
+    desc = rule_require_empty_special_building_slot_desc
+    default = default_require_empty_slot
 
-    require_empty_slot = {
-        name = lbla_require_empty_special_building_slot_rule_require
-        desc = lbla_require_empty_special_building_slot_rule_desc
+    default_require_empty_slot = {
+        name = setting_default_require_empty_slot
+        desc = setting_default_require_empty_slot_desc
     }
-
     ignore_empty_slot = {
-        name = lbla_require_empty_special_building_slot_rule_ignore
-        desc = lbla_require_empty_special_building_slot_rule_ignore_desc
+        name = setting_ignore_require_empty_slot
+        desc = setting_ignore_require_empty_slot_desc
     }
 }
