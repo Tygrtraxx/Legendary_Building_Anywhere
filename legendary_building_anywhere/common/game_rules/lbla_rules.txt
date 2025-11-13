@@ -1,0 +1,16 @@
+lbla_require_empty_special_building_slot_rule = {
+    group = custom_rules_group
+    name = lbla_require_empty_special_building_slot_rule
+    default = require_empty_slot
+    desc = lbla_require_empty_special_building_slot_rule_desc
+
+    require_empty_slot = {
+        name = lbla_require_empty_special_building_slot_rule_require
+        desc = lbla_require_empty_special_building_slot_rule_desc
+    }
+
+    ignore_empty_slot = {
+        name = lbla_require_empty_special_building_slot_rule_ignore
+        desc = lbla_require_empty_special_building_slot_rule_ignore_desc
+    }
+}
