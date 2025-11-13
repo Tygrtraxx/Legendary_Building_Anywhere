@@ -25,7 +25,7 @@ clear_ground_for_legendary_building = {
             #       So I'm making this optional by creating a game rule for it. 
             #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
 			if = {
-				limit = { NOT = { has_game_rule = lbla_require_empty_special_building_slot_rule } }
+				limit = { NOT = { has_game_rule = rule_require_empty_special_building_slot_default_require_empty_slot } }
 				title_province = { has_special_building_slot = no }
             }
                 
@@ -200,7 +200,7 @@ pick_legendary_barony_decision = {
             #       So I'm making this optional by creating a game rule for it. 
             #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
 			if = {
-				limit = { NOT = { has_game_rule = lbla_require_empty_special_building_slot_rule } }
+				limit = { NOT = { has_game_rule = rule_require_empty_special_building_slot_default_require_empty_slot } }
 				title_province = { has_special_building_slot = no }
             }
 				is_leased_out = no
