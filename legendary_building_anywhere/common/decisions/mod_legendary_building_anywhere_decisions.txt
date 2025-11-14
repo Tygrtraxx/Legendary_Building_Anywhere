@@ -21,16 +21,33 @@ clear_ground_for_legendary_building = {
 			text = clear_ground_for_legendary_building_no_barony_tt
 			any_held_title = {
 				title_tier = barony
-            # MOD:  By default, the game checks if the county has a special building already in it.
-            #       So I'm making this optional by creating a game rule for it. 
-            #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
-            trigger_if = {
-                    has_game_rule = default_require_empty_slot
+
+                # MOD:  Yes (Require Empty Slot)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
+                    }
+                    # If the province has no special building slot, it's eligible for a legendary building
                     title_province = { has_special_building_slot = no }
-            }
-                
-				is_leased_out = no
-				OR = {
+                }
+
+                #  MOD:  No (Ignore Requirement)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
+                    }
+
+                    # Regardless of the special building slot in the province, it's eligible for a legendary building
+                    OR = {
+                        title_province = { has_special_building_slot = yes }
+
+                        title_province = { has_special_building_slot = no }
+                    }
+                }
+				
+                is_leased_out = no
+				
+                OR = {
 
 					# Your own holdings
 					holder = root
@@ -195,15 +212,32 @@ pick_legendary_barony_decision = {
 			############################################################################################
 			trigger_if = {
 				limit = { exists = this }
-				title_province = { has_special_building_slot = no }
-			# MOD:  By default, the game checks if the county has a special building already in it.
-            #       So I'm making this optional by creating a game rule for it. 
-            #       That way you can have multiple legendary buildings in 1 county if this rule is not enabled.
-            trigger_if = {
-                    has_game_rule = default_require_empty_slot
+
+                # MOD:  Yes (Require Empty Slot)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
+                    }
+                    # If the province has no special building slot, it's eligible for a legendary building
                     title_province = { has_special_building_slot = no }
-            }
+                }
+
+                #  MOD:  No (Ignore Requirement)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
+                    }
+
+                    # Regardless of the special building slot in the province, it's eligible for a legendary building
+                    OR = {
+                        title_province = { has_special_building_slot = yes }
+
+                        title_province = { has_special_building_slot = no }
+                    }
+                }
+
 				is_leased_out = no
+
 				OR = {
 
 					# Your own holdings
