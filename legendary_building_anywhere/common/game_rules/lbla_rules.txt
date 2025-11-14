@@ -1,4 +1,4 @@
-﻿require_empty_special_building_slot = {
+require_empty_special_building_slot = {
 
     categories = {
         tweaks
