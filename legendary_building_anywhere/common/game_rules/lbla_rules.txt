@@ -1,15 +1,16 @@
-rule_require_empty_special_building_slot = {
-    group = custom_rules_group
-    name = rule_require_empty_special_building_slot
-    desc = rule_require_empty_special_building_slot_desc
+﻿require_empty_special_building_slot = {
+
+    categories = {
+        tweaks
+    }
+
     default = default_require_empty_slot
 
     default_require_empty_slot = {
-        name = setting_default_require_empty_slot
-        desc = setting_default_require_empty_slot_desc
+        flag = GG_can_change_rule
     }
+
     ignore_empty_slot = {
-        name = setting_ignore_require_empty_slot
-        desc = setting_ignore_require_empty_slot_desc
+        flag = GG_can_change_rule
     }
 }
