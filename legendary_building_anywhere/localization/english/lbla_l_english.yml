@@ -1,9 +1,9 @@
-l_english:
- rule_require_empty_special_building_slot:0 "Special Building Slot Requirement"
- rule_require_empty_special_building_slot_desc:0 "Determines if provinces are eligible targets for constructing a Legendary Building"
+﻿l_english:
+ rule_require_empty_special_building_slot:0 "Legendary Building Special Building Slot Requirement"
+ rule_require_empty_special_building_slot_desc:0 "Determines if provinces are eligible targets for constructing a Legendary Building depending on the special building slot requirement."
 
- setting_default_require_empty_slot:0 "Require Empty Slot (Default)"
- setting_default_require_empty_slot_desc:0 "A province must have no existing special building slot available in order to be a selectable target to build a legendary building."
+ setting_default_require_empty_slot:0 "Yes (Require Empty Slot)"
+ setting_default_require_empty_slot_desc:0 "A province must have no existing special building slot in order to be an eligible target for constructing a Legendary Building."
 
- setting_ignore_require_empty_slot:0 "Ignore Requirement"
- setting_ignore_require_empty_slot_desc:0 "The special building slot requirement is ignored, allowing you to build a legendary building regardless if a special building slot already exists."
+ setting_ignore_empty_slot:0 "No (Ignore Requirement)"
+ setting_ignore_empty_slot_desc:0 "The special building slot requirement is ignored, allowing construction of a Legendary Building even if a special building slot is already present in the province."
