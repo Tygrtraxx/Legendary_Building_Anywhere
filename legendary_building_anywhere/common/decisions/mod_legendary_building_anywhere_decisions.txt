@@ -13,8 +13,8 @@ clear_ground_for_legendary_building = {
 	}
     
 	############################################################################################
-	# MOD : Allows you to actually be able to select the decision and not have it grayed out
-	#       because you don't have a county capital or direct vassals to build in
+	# MOD : Allows you to be able to see other eligible counties for the decision
+	#       instead of just the county capital
 	############################################################################################
 	is_valid_showing_failures_only = {
 		custom_tooltip = {
@@ -22,16 +22,35 @@ clear_ground_for_legendary_building = {
 			any_held_title = {
 				title_tier = barony
 				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes          <-- Commenting this out makes it so we don't need the county capital requirement
-				is_leased_out = no
-				OR = {
 
-					# Your own holdings
-					holder = root
+                # MOD: Rule LBLA : Allow direct vassals (Yes)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_allow_direct_vassals:yes_direct_vassals
+                    }
 
-					# Barony held by a direct vassal
-					holder = { liege = root }
-				}
+                    OR = {
+
+                        # Your own holdings
+                        holder = root
+
+                        # Barony held by a direct vassal
+                        holder = { liege = root }
+                    }
+                }
+
+                # MOD: Rule LBLA : Allow direct vassals (No)
+                trigger_if = {
+                    limit = {
+                        has_game_rule = rule_allow_direct_vassals:no_direct_vassals
+                    }
+
+                    # Your own holdings
+                    holder = root
+                }
+
+                is_leased_out = no
+
 			}
 		}
 	}
@@ -187,20 +206,42 @@ pick_legendary_barony_decision = {
 			# MOD : Allows you to see the clear grounds decision without the county capital requirement
 			#       and it allows you to build in other vassals only if they are DIRECTLY under you
 			############################################################################################
-			trigger_if = {
-				limit = { exists = this }
-				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes                             <-- Commenting this out makes it so we don't need the county capital requirement
-				is_leased_out = no
-				OR = {
+			
+            # MOD: Rule LBLA : Allow direct vassals (Yes)
+            trigger_if = {
+                limit = {
+                    exists = this
+                    has_game_rule = rule_allow_direct_vassals:yes_direct_vassals
+                }
 
-					# Your own holdings
-					holder = scope:ruler
+                title_province = { has_special_building_slot = no }
 
-					# Barony held by a direct vassal
-					holder = { liege = scope:ruler }
-				}
-			}
+                OR = {
+
+                    # Your own holdings
+                    holder = scope:ruler
+
+                    # Barony held by a direct vassal
+                    holder = { liege = scope:ruler }
+                }
+
+                is_leased_out = no
+            }
+
+            # MOD: Rule LBLA : Allow direct vassals (No)
+            trigger_if = {
+                limit = {
+                    exists = this
+                    has_game_rule = rule_allow_direct_vassals:no_direct_vassals
+                }
+
+                title_province = { has_special_building_slot = no }
+
+                # Your own holdings
+                holder = scope:ruler
+
+                is_leased_out = no
+            }	
         }
     }
     is_valid_showing_failures_only = { # Error suppressing
