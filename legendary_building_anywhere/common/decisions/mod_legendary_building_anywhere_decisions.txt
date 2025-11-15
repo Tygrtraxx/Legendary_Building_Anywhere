@@ -210,43 +210,54 @@ pick_legendary_barony_decision = {
 			# MOD : Allows you to see the clear grounds decision without the county capital requirement
 			#       and it allows you to build in other vassals only if they are DIRECTLY under you
 			############################################################################################
-			trigger_if = {
-				limit = { exists = this }
+			
 
-                # MOD:  Yes (Require Empty Slot)
-                trigger_if = {
-                    limit = {
-                        has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
-                    }
-                    # If the province has no special building slot, it's eligible for a legendary building
+            # MOD:  Yes (Require Empty Slot)
+            trigger_if = {
+                limit = {
+                    exists = this
+                    has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
+                }
+                # If the province has no special building slot, it's eligible for a legendary building
+                title_province = { has_special_building_slot = no }
+
+                is_leased_out = no
+
+                OR = {
+
+                    # Your own holdings
+                    holder = scope:ruler
+
+                    # Barony held by a direct vassal
+                    holder = { liege = scope:ruler }
+                }
+            }
+
+            #  MOD:  No (Ignore Requirement)
+            trigger_if = {
+                limit = {
+                    exists = this
+                    has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
+                }
+
+                # Regardless of the special building slot in the province, it's eligible for a legendary building
+                OR = {
+                    title_province = { has_special_building_slot = yes }
+
                     title_province = { has_special_building_slot = no }
                 }
 
-                #  MOD:  No (Ignore Requirement)
-                trigger_if = {
-                    limit = {
-                        has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
-                    }
+                is_leased_out = no
 
-                    # Regardless of the special building slot in the province, it's eligible for a legendary building
-                    OR = {
-                        title_province = { has_special_building_slot = yes }
+                OR = {
 
-                        title_province = { has_special_building_slot = no }
-                    }
+                    # Your own holdings
+                    holder = scope:ruler
+
+                    # Barony held by a direct vassal
+                    holder = { liege = scope:ruler }
                 }
-
-				is_leased_out = no
-
-				OR = {
-
-					# Your own holdings
-					holder = scope:ruler
-
-					# Barony held by a direct vassal
-					holder = { liege = scope:ruler }
-				}
-			}
+            }
         }
     }
     is_valid_showing_failures_only = { # Error suppressing
