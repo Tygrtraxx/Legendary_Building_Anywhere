@@ -25,7 +25,7 @@ clear_ground_for_legendary_building = {
                 # MOD:  Yes (Require Empty Slot)
                 trigger_if = {
                     limit = {
-                        has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
+                        has_game_rule = default_require_empty_slot
                     }
                     # If the province has no special building slot, it's eligible for a legendary building
                     title_province = { has_special_building_slot = no }
@@ -34,7 +34,7 @@ clear_ground_for_legendary_building = {
                 #  MOD:  No (Ignore Requirement)
                 trigger_if = {
                     limit = {
-                        has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
+                        has_game_rule = ignore_empty_slot
                     }
 
                     # Regardless of the special building slot in the province, it's eligible for a legendary building
@@ -216,7 +216,7 @@ pick_legendary_barony_decision = {
             trigger_if = {
                 limit = {
                     exists = this
-                    has_game_rule = rule_require_empty_special_building_slot:default_require_empty_slot
+                    has_game_rule = default_require_empty_slot
                 }
                 # If the province has no special building slot, it's eligible for a legendary building
                 title_province = { has_special_building_slot = no }
@@ -237,7 +237,7 @@ pick_legendary_barony_decision = {
             trigger_if = {
                 limit = {
                     exists = this
-                    has_game_rule = rule_require_empty_special_building_slot:ignore_empty_slot
+                    has_game_rule = ignore_empty_slot
                 }
 
                 # Regardless of the special building slot in the province, it's eligible for a legendary building
