@@ -14,3 +14,20 @@
         flag = GG_can_change_rule
     }
 }
+
+allow_leased_counties = {
+
+    categories = {
+        tweaks
+    }
+
+    default = no_leased_counties
+
+    no_leased_counties = {
+        flag = GG_can_change_rule
+    }
+
+    yes_leased_counties = {
+        flag = GG_can_change_rule
+    }
+}
