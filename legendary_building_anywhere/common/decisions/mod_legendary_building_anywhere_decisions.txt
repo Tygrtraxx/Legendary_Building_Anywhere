@@ -31,7 +31,7 @@ clear_ground_for_legendary_building = {
                 trigger_if = {
                     limit = {
                         # If the "Yes" rule is active, then allow the player to see eligible vassals counties too
-                        has_game_rule = yes_direct_vassals
+                        has_game_rule = enable_direct_vassals
                     }
 
                     OR = {
@@ -50,15 +50,34 @@ clear_ground_for_legendary_building = {
                 trigger_if = {
                     limit = {
                         # If the "No" rule is active, then only allow the player to see their own eligible counties
-                        has_game_rule = no_direct_vassals
+                        has_game_rule = disable_direct_vassals
                     }
 
                     # Your own holdings
                     holder = root
                 }
 
-                # Check if the county is not leased out
-                is_leased_out = no
+                ############################################################################
+                # MOD:  Rule LBLA : Leased Counties Legendary Building Placement - Allow leased counties (No)
+                ############################################################################
+                trigger_if = {
+                    limit = {
+
+                    # Note: Both of these (1 and 2) are not needed here since it is already checked above because 
+                    # regardless of the first rule being enabled or disabled, one of the triggers will always run.
+
+                    # Might be used for possible future debugging where users somehow bypass the first rule, so I will leave it commented out for now.
+
+                    # 1. exists = this
+                    # 2. title_province = { has_special_building_slot = no }
+                            
+                    # If the "No" rule is active, then only allow the player to see non-leased eligible counties
+                    has_game_rule = disable_leased_counties
+                    }
+
+                    # Check to make sure the county is not leased out
+                    is_leased_out = no
+                }
 			}
 		}
 	}
@@ -215,7 +234,6 @@ pick_legendary_barony_decision = {
         #       of just the county capitals
         ############################################################################################
 			
-            
             ############################################################################
             # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (Yes)
             ############################################################################
@@ -226,7 +244,7 @@ pick_legendary_barony_decision = {
                     exists = this
 
                     # If the "Yes" rule is active, then allow the player to pick eligible vassals counties too
-                    has_game_rule = yes_direct_vassals
+                    has_game_rule = enable_direct_vassals
                 }
 
                 # Check and make sure the county does not already have a special building slot
@@ -240,11 +258,8 @@ pick_legendary_barony_decision = {
                     # County held by a direct vassal
                     holder = { liege = scope:ruler }
                 }
-
-                is_leased_out = no
             }
 
-            
             ############################################################################
             # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (No)
             ############################################################################
@@ -255,7 +270,7 @@ pick_legendary_barony_decision = {
                     exists = this
 
                     # If the "No" rule is active, then only allow the player to pick their own eligible counties
-                    has_game_rule = no_direct_vassals
+                    has_game_rule = disable_direct_vassals
                 }
 
                 # Check and make sure the county does not already have a special building slot
@@ -263,9 +278,29 @@ pick_legendary_barony_decision = {
 
                 # Your own holdings
                 holder = scope:ruler
+            }
 
+            ############################################################################
+            # MOD:  Rule LBLA : Leased Counties Legendary Building Placement - Allow leased counties (No)
+            ############################################################################
+            trigger_if = {
+                limit = {
+
+                    # Note: Both of these (1 and 2) are not needed here since it is already checked above because 
+                    # regardless of the first rule being enabled or disabled, one of the triggers will always run.
+
+                    # Might be used for possible future debugging where users somehow bypass the first rule, so I will leave it commented out for now.
+
+                    # 1. exists = this
+                    # 2. title_province = { has_special_building_slot = no }
+                            
+                    # If the "No" rule is active, then only allow the player to see non-leased eligible counties
+                    has_game_rule = disable_leased_counties
+                }
+
+                # Check to make sure the county is not leased out
                 is_leased_out = no
-            }	
+            }
         }
     }
     is_valid_showing_failures_only = { # Error suppressing
