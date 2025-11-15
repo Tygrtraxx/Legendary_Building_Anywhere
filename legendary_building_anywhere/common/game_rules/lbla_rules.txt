@@ -1,0 +1,33 @@
+﻿allow_direct_vassals = {
+
+    categories = {
+        tweaks
+    }
+
+    default = disable_direct_vassals
+
+    disable_direct_vassals = {
+        flag = GG_can_change_rule
+    }
+
+    enable_direct_vassals = {
+        flag = GG_can_change_rule
+    }
+}
+
+allow_leased_counties = {
+
+    categories = {
+        tweaks
+    }
+
+    default = disable_leased_counties
+
+    disable_leased_counties = {
+        flag = GG_can_change_rule
+    }
+
+    enable_leased_counties = {
+        flag = GG_can_change_rule
+    }
+}

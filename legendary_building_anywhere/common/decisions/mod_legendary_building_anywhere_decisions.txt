@@ -13,25 +13,71 @@ clear_ground_for_legendary_building = {
 	}
     
 	############################################################################################
-	# MOD : Allows you to actually be able to select the decision and not have it grayed out
-	#       because you don't have a county capital or direct vassals to build in
+	# MOD : Allows you to be able to see other eligible counties for the decision instead 
+	#       of just the county capitals
 	############################################################################################
 	is_valid_showing_failures_only = {
 		custom_tooltip = {
 			text = clear_ground_for_legendary_building_no_barony_tt
 			any_held_title = {
 				title_tier = barony
+
+                # Check and make sure the county does not already have a special building slot
 				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes          <-- Commenting this out makes it so we don't need the county capital requirement
-				is_leased_out = no
-				OR = {
 
-					# Your own holdings
-					holder = root
+                ############################################################################
+                # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (Yes)
+                ############################################################################
+                trigger_if = {
+                    limit = {
+                        # If the "Yes" rule is active, then allow the player to see eligible vassals counties too
+                        has_game_rule = enable_direct_vassals
+                    }
 
-					# Barony held by a direct vassal
-					holder = { liege = root }
-				}
+                    OR = {
+
+                        # Your own holdings
+                        holder = root
+
+                        # County held by a direct vassal
+                        holder = { liege = root }
+                    }
+                }
+
+                ############################################################################
+                # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (No)
+                ############################################################################
+                trigger_if = {
+                    limit = {
+                        # If the "No" rule is active, then only allow the player to see their own eligible counties
+                        has_game_rule = disable_direct_vassals
+                    }
+
+                    # Your own holdings
+                    holder = root
+                }
+
+                ############################################################################
+                # MOD:  Rule LBLA : Leased Counties Legendary Building Placement - Allow leased counties (No)
+                ############################################################################
+                trigger_if = {
+                    limit = {
+
+                    # Note: Both of these (1 and 2) are not needed here since it is already checked above because 
+                    # regardless of the first rule being enabled or disabled, one of the triggers will always run.
+
+                    # Might be used for possible future debugging where users somehow bypass the first rule, so I will leave it commented out for now.
+
+                    # 1. exists = this
+                    # 2. title_province = { has_special_building_slot = no }
+                            
+                    # If the "No" rule is active, then only allow the player to see non-leased eligible counties
+                    has_game_rule = disable_leased_counties
+                    }
+
+                    # Check to make sure the county is not leased out
+                    is_leased_out = no
+                }
 			}
 		}
 	}
@@ -183,24 +229,78 @@ pick_legendary_barony_decision = {
     widget = {
         controller = create_holy_order
         barony_valid = {
-			############################################################################################
-			# MOD : Allows you to see the clear grounds decision without the county capital requirement
-			#       and it allows you to build in other vassals only if they are DIRECTLY under you
-			############################################################################################
-			trigger_if = {
-				limit = { exists = this }
-				title_province = { has_special_building_slot = no }
-				# is_capital_barony = yes                             <-- Commenting this out makes it so we don't need the county capital requirement
-				is_leased_out = no
-				OR = {
+        ############################################################################################
+        # MOD : Allows you to be able to pick other eligible counties for the decision instead 
+        #       of just the county capitals
+        ############################################################################################
+			
+            ############################################################################
+            # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (Yes)
+            ############################################################################
+            trigger_if = {
+                limit = {
 
-					# Your own holdings
-					holder = scope:ruler
+                    # Check if the county exists
+                    exists = this
 
-					# Barony held by a direct vassal
-					holder = { liege = scope:ruler }
-				}
-			}
+                    # If the "Yes" rule is active, then allow the player to pick eligible vassals counties too
+                    has_game_rule = enable_direct_vassals
+                }
+
+                # Check and make sure the county does not already have a special building slot
+                title_province = { has_special_building_slot = no }
+
+                OR = {
+
+                    # Your own holdings
+                    holder = scope:ruler
+
+                    # County held by a direct vassal
+                    holder = { liege = scope:ruler }
+                }
+            }
+
+            ############################################################################
+            # MOD:  Rule LBLA : Vassal Legendary Building Placement - Allow direct vassals (No)
+            ############################################################################
+            trigger_if = {
+                limit = {
+                    
+                    # Check if the county exists
+                    exists = this
+
+                    # If the "No" rule is active, then only allow the player to pick their own eligible counties
+                    has_game_rule = disable_direct_vassals
+                }
+
+                # Check and make sure the county does not already have a special building slot
+                title_province = { has_special_building_slot = no }
+
+                # Your own holdings
+                holder = scope:ruler
+            }
+
+            ############################################################################
+            # MOD:  Rule LBLA : Leased Counties Legendary Building Placement - Allow leased counties (No)
+            ############################################################################
+            trigger_if = {
+                limit = {
+
+                    # Note: Both of these (1 and 2) are not needed here since it is already checked above because 
+                    # regardless of the first rule being enabled or disabled, one of the triggers will always run.
+
+                    # Might be used for possible future debugging where users somehow bypass the first rule, so I will leave it commented out for now.
+
+                    # 1. exists = this
+                    # 2. title_province = { has_special_building_slot = no }
+                            
+                    # If the "No" rule is active, then only allow the player to see non-leased eligible counties
+                    has_game_rule = disable_leased_counties
+                }
+
+                # Check to make sure the county is not leased out
+                is_leased_out = no
+            }
         }
     }
     is_valid_showing_failures_only = { # Error suppressing
