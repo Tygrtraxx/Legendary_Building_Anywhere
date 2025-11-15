@@ -10,12 +10,9 @@ This allows you to build legendary buildings anywhere within your empire.
    - Go to the [releases](https://github.com/Tygrtraxx/Legendary_Building_Anywhere/releases) page.  
    - Download the version compatible with your current Crusader Kings III patch.
      
-
+     
 2. **Unzip the File**  
    After unzipping, you will see several items, such as:
-    - `.git/`
-    - `.gitattributes`
-    - `Legendary_Building_Anywhere.code-workspace`
     - `legendary_building_anywhere/`
     - `legendary_building_anywhere.mod`
     - `README.MD`
@@ -34,11 +31,12 @@ This allows you to build legendary buildings anywhere within your empire.
 Confirm that your paths look like this:
     - `Documents/Paradox Interactive/Crusader Kings III/mod/legendary_building_anywhere/`
     - `Documents/Paradox Interactive/Crusader Kings III/mod/legendary_building_anywhere.mod`
+      
     
-
 5. **Enable the Mod**  
     - Open the Crusader Kings III launcher.  
     - Enable **Legendary Building Location Anywhere** in the Mod Manager.  
     - Launch the game.
+
 
 ---
