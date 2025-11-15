@@ -1,4 +1,4 @@
-allow_direct_vassals = {
+﻿allow_direct_vassals = {
 
     categories = {
         tweaks
