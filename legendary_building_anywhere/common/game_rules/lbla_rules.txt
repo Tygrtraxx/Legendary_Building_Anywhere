@@ -4,13 +4,13 @@
         tweaks
     }
 
-    default = no_direct_vassals
+    default = disable_direct_vassals
 
-    no_direct_vassals = {
+    disable_direct_vassals = {
         flag = GG_can_change_rule
     }
 
-    yes_direct_vassals = {
+    enable_direct_vassals = {
         flag = GG_can_change_rule
     }
 }
@@ -21,13 +21,13 @@ allow_leased_counties = {
         tweaks
     }
 
-    default = no_leased_counties
+    default = disable_leased_counties
 
-    no_leased_counties = {
+    disable_leased_counties = {
         flag = GG_can_change_rule
     }
 
-    yes_leased_counties = {
+    enable_leased_counties = {
         flag = GG_can_change_rule
     }
 }

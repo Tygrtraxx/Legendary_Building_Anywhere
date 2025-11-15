@@ -2,15 +2,15 @@
  rule_allow_leased_counties:0 "#B LBLA #! : #I Leased Counties Legendary Building Placement #!"
  rule_allow_leased_counties_desc:0 "Determines if leased counties are eligible for legendary building placement."
 
- setting_yes_leased_counties:0 "Yes"
- setting_yes_leased_counties_desc:0 "You can build legendary buildings in leased counties."
- setting_no_leased_counties:0 "No (Default)"
- setting_no_leased_counties_desc:0 "You cannot build legendary buildings in leased counties. This is vanilla and is considered more balanced."
+ setting_enable_leased_counties:0 "#high Enabled #!"
+ setting_enable_leased_counties_desc:0 "You can build legendary buildings in leased counties."
+ setting_disable_leased_counties:0 "Disabled (Default)"
+ setting_disable_leased_counties_desc:0 "You cannot build legendary buildings in leased counties. This is default and is considered more balanced."
 
  rule_allow_direct_vassals:0 "#B LBLA #! : #I Vassal Legendary Building Placement #!"
  rule_allow_direct_vassals_desc:0 "Determines if direct vassals to be eligible for legendary building placement."
 
- setting_yes_direct_vassals:0 "Yes"
- setting_yes_direct_vassals_desc:0 "You can build legendary buildings in direct vassals land as long as they hold direct control over the county."
- setting_no_direct_vassals:0 "No (Default)"
- setting_no_direct_vassals_desc:0 "You cannot build legendary buildings in direct vassals land. This is vanilla and is considered more balanced."
+ setting_enable_direct_vassals:0 "#high Enabled #!"
+ setting_enable_direct_vassals_desc:0 "You can build legendary buildings in direct vassals land as long as they hold direct control over the county."
+ setting_disable_direct_vassals:0 "Disabled (Default)"
+ setting_disable_direct_vassals_desc:0 "You cannot build legendary buildings in direct vassals land. This is default and is considered more balanced."
