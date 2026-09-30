@@ -7,6 +7,8 @@ clear_ground_for_legendary_building = {
 	sort_order = 100
 
 	is_shown = {
+		is_landed = yes
+		has_dlc_feature = legends
 		exists = var:legendary_reward_location
 		has_dlc_feature = legends
 		is_landed = yes
@@ -219,6 +221,8 @@ clear_ground_for_legendary_building = {
         base = 100 #AI should always reap rewards
     }
 }
+
+### $clear_ground_for_legendary_building$ ###
 pick_legendary_barony_decision = {
     picture = {
         reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
