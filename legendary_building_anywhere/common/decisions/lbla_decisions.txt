@@ -316,6 +316,14 @@ pick_legendary_barony_decision = {
         send_interface_toast = {
             type = event_toast_effect_good
             title = clear_ground_for_legendary_building.toast
+    ############################################################################
+    # MOD:  Prevents errors from showing in the error log by making sure clear_ground is valid variable
+    ############################################################################
+    if = {
+        limit = {
+            has_variable = clear_ground
+        }
+
             switch = {
                 trigger = root.var:clear_ground
                 flag:legendary_shrine = {
