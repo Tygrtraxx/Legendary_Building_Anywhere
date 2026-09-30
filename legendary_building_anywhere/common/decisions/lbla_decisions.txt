@@ -232,7 +232,7 @@ pick_legendary_barony_decision = {
     is_invisible = yes
     widget = {
         controller = create_holy_order
-        barony_valid = {
+        title_valid = {
         ############################################################################################
         # MOD : Allows you to be able to pick other eligible counties for the decision instead 
         #       of just the county capitals
